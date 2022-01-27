@@ -136,13 +136,28 @@ console.log("Welcome to  AddressBook using JavaScript");
  * 
  *  * @return: which returns a mapfunction to validate if else statement
  */
- try {
-    let contact = new Contact("Anusha", "Nallapu","Rotary nagar", "Bangalore", 'Karnataka', 560039, '91 9874563210', "abc@gmail.com");
-    console.log(contact.toString());
+//  try {
+//     let contact = new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com");
+//     console.log(contact.toString());
+// } catch (e) {
+//     console.log(e);
+// }
+
+   /**UC3 ability to create a new address book  array and add new contact to it
+    * @returns whih  returns array from the addressbook
+    */
+
+   let addressbookArray = new Array();
+   try {
+    addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    addressbookArray.push(new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com"));
 } catch (e) {
     console.log(e);
 }
-
-   
-
+console.log(addressbookArray);
  
