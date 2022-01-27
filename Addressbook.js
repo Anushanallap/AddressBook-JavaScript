@@ -5,12 +5,26 @@ console.log("Welcome to  AddressBook using JavaScript");
  * @param: FirstName, LastName,Address, City,State,Zip , PhoneNum,Email
  * @return: which returns contact details
  */
+
+
+ let nameregex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+ let lastnameregex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+
+ const addressregex = RegExp('^[a-zA-Z0-9#,]{4,}$');
+ const cityregex = RegExp('^[a-zA-Z]{4,}$');
+ const stateregex = RegExp('^[a-zA-Z]{4,}$');
+ const zipregex = RegExp("^[0-9]{3}\\s{0,1}[0-9]{3}$");
+ const phoneNumberegex = RegExp('^\\d{2}(\\s{1}\\d{10})$');
+ const emailregex = RegExp("^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$");
+
+
  class Contact {
 
-    constructor(firstName,lastName,city,state,zip,phoneNumber,email) {
+    constructor(firstName,lastName,city,address,state,zip,phoneNumber,email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
+        this.address = address;
         this.state = state;
         this.zip = zip;
         this.phoneNumber = phoneNumber;
@@ -27,6 +41,9 @@ console.log("Welcome to  AddressBook using JavaScript");
 
     get city() {
         return this._city;
+    }
+    get address(){
+        return this._address;
     }
 
     get state() {
@@ -46,37 +63,86 @@ console.log("Welcome to  AddressBook using JavaScript");
     }
 
     set firstName(firstName) {
-        this._firstName = firstName;
+        if (nameregex.test(firstName))
+            this._firstName = firstName;
+        else
+            throw "FIRST NAME is Incorrect ";
+    }
+    set lastName(lastName) {
+        if (lastnameregex.test(lastName))
+            this._lastName = lastName;
+        else
+            throw "last NAME is Incorrect ";
     }
 
-    set lastName(lastName) {
-        this._lastName = lastName;
+
+    set address(address) {
+        if (addressregex.test(address))
+            this._address = address;
+        else
+            throw "ADDRESS is Incorrect";
     }
 
     set city(city) {
-        this._city = city;
+        if (cityregex.test(city))
+            this._city = city;
+        else
+            throw "CITY is Incorrect";
     }
 
     set state(state) {
-        this._state = state;
+        if (stateregex.test(state))
+            this._state = state;
+        else
+            throw "STATE is Incorrect";
     }
 
     set zip(zip) {
-        this._zip = zip;
+        if (zipregex.test(zip))
+            this._zip = zip;
+        else
+            throw "ZIP is Incorrect";
     }
 
     set phoneNumber(phoneNumber) {
-        this._phoneNumber = phoneNumber;
+        if (phoneNumberregex.test(phoneNumber))
+            this._phoneNumber = phoneNumber;
+        else
+            throw "PHONE NUMBER is Incorrect";
     }
 
     set email(email) {
-        this._email = email;
+        if (emailregex.test(email))
+            this._email = email;
+        else
+            throw "EMAIL ADDRESS is Incorrect";
     }
 
     toString() {
-        return "First Name : " + this.firstName + ", Last Name : " + this.lastName + ", City : " + this.city + ", State : " + this.state + ", Zip : " + this.zip + ", Phone Number : " + this.phoneNumber + ", Email : " + this.email;
+        return "First Name : " + this.firstName + ", Last Name : " + this.lastName + ", City : " + this.city + ", address : " + this.address+ " ,State : " + this.state + ", Zip : " + this.zip + ", Phone Number : " + this.phoneNumber + ", Email : " + this.email;
     }
 }
 
-let contact = new Contact("Anusha", "Nallapu", "warangal", "telangana", 506001, 9652814314, "anusha@gmail.com");
-console.log(contact.toString());
+//let contact = new Contact("Anusha", "Nallapu", "warangal","NTR street", "telangana", 506001, 9652814314, "anusha@gmail.com");
+//console.log(contact.toString());
+
+/**UC2: Ensure valid contacts are added; 
+ *      
+ *  first name and last name should start with capital and should have minimum three characters
+ * Address, city and state should have minimum 4 characters...
+ * 
+ * 
+ * @param: FirstName, LastName,Address, City,State,Zip , PhoneNum,Email
+ * 
+ *  * @return: which returns a mapfunction to validate if else statement
+ */
+ try {
+    let contact = new Contact("Anusha", "Nallapu","Rotary nagar", "Bangalore", 'Karnataka', 560039, '91 9874563210', "abc@gmail.com");
+    console.log(contact.toString());
+} catch (e) {
+    console.log(e);
+}
+
+   
+
+ 
