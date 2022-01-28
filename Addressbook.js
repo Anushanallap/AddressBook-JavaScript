@@ -148,17 +148,17 @@ console.log("Welcome to  AddressBook using JavaScript");
     */
 
    let addressbookArray = new Array();
-//    try {
-//     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
-// } catch (e) {
-//     console.error(e);
-// }
+   try {
+    addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
+} catch (e) {
+    console.error(e);
+}
 
-// try {
-//     addressbookArray.push(new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com"));
-// } catch (e) {
-//     console.log(e);
-// }
+try {
+    addressbookArray.push(new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com"));
+} catch (e) {
+    console.log(e);
+}
 console.log(addressbookArray);
 
 /**UC4 ability to find existing contact person using their nam and edit it
@@ -207,6 +207,16 @@ function deleteContact(firstName, lastName) {
         console.log("Contact Does Not Exist");
     }
 }
+
+/**UC6 ability to find number of contacts in the addresssbook 
+ * count the number of contacts in the addressbook
+ * 
+ */
+function countContacts(contactArray){
+    let count= contactArray.reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts is: "+count);
+ }
+
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -225,3 +235,4 @@ editContact("sam", "mehtha", "state", "telangana");
 console.log(addressbookArray);
 deleteContact("sam" , "mehtha");
 console.log(addressbookArray);
+countContacts(addressbookArray);
