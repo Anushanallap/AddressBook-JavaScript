@@ -217,6 +217,26 @@ function countContacts(contactArray){
     console.log("Number of contacts is: "+count);
  }
 
+ /**UC7 ability to ensure there is no duplicate entry of the same person in the addressbook
+  * usinf array functions of filter map
+  * 
+  */
+ function addContact(addressbookArray,firstName,lastName){
+    if(addressbookArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(firstName+" "+lastName))){   
+        console.log("Given contact already present in addressbook.");
+    }
+    else{
+        try{
+            addressbookArray.push(new Contact(firstName,lastName,'RTNagar','Bangalore','Karnataka',560002,'91 8521036987','sehwag@gmail.com'));
+            
+            console.log("Contact is added. ");
+        }catch(Exception){
+            console.log(Exception);
+        }
+        
+    }
+}
+
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -236,3 +256,5 @@ console.log(addressbookArray);
 deleteContact("sam" , "mehtha");
 console.log(addressbookArray);
 countContacts(addressbookArray);
+addContact(addressbookArray,"bhavani" , "vemula");
+console.log(addressbookArray);
