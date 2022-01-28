@@ -196,6 +196,17 @@ function editContact(firstName, lastName, property, newValue) {
         console.log("Contact Does Not Exist");
     }
 }
+/**UC5 ability to find a person with name delete it from the array
+ * 
+ */
+function deleteContact(firstName, lastName) {
+    if (contactexists(firstName, lastName)) {
+        addressbookArray = addressbookArray.filter((contact) => contact.firstName != firstName && contact.lastName != lastName);
+        console.log(firstName + " " + lastName + "  Contact Deleted");
+    } else {
+        console.log("Contact Does Not Exist");
+    }
+}
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -210,4 +221,7 @@ try {
 console.log(addressbookArray);
 console.log("\nAfter Editing Contact")
 editContact("sam", "mehtha", "city", "madhira");
-editContact("sam", "mehtha", "state", "Maharashtra");
+editContact("sam", "mehtha", "state", "telangana");
+console.log(addressbookArray);
+deleteContact("sam" , "mehtha");
+console.log(addressbookArray);
