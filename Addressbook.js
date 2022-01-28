@@ -265,6 +265,10 @@ function PresentInCity(contactArray, name, cityName) {
    console.log(contact.toString());
     
 }
+/**UC10 ability to get number of contact persons i.e count by city or state
+ * 
+ * 
+ */
 function getCountByCity(contactArray, cityName) {
     let count = contactArray.filter(contact => contact.city == cityName).reduce((a, b) => a.concat(b), []).length;
     console.log("Number of contacts present city are: " + count);
@@ -302,3 +306,4 @@ PresentInCity(addressbookArray,"banjara","hyderabad");
 PresentInState(addressbookArray,"Anusha" ,"warangal" );
 getCountByCity(addressbookArray, "warangal");
 getCountByState(addressbookArray, "telangana");
+
