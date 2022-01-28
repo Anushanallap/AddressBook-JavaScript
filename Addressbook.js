@@ -250,6 +250,31 @@ function searchByCityOrState(contactArray,cityorstate){
     }
 }
 
+/**UC9 ability to view person by city or state
+ * 
+ */
+function PresentInState(contactArray,name,stateName){
+    console.log('View contact person by state');
+   let contact=contactArray.filter(a => a.state == stateName).find(b => b.firstName==name);
+   console.log(contact.toString());
+}
+
+function PresentInCity(contactArray, name, cityName) {
+    console.log('View contact person by city');
+   let contact=contactArray.filter(a => a.city == cityName).find(b => b.firstName==name);
+   console.log(contact.toString());
+    
+}
+function getCountByCity(contactArray, cityName) {
+    let count = contactArray.filter(contact => contact.city == cityName).reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts present city are: " + count);
+}
+
+function getCountByState(contactArray, stateName) {
+    let count = contactArray.filter(contact => contact.state == stateName).reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts present state are: " + count);
+}
+
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", 'telangana', 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -262,7 +287,7 @@ try {
     console.log(e);
 }
 console.log(addressbookArray);
-console.log("\nAfter Editing Contact")
+console.log("\nAfter Editing Contact");
 editContact("sam", "mehtha", "city", "madhira");
 editContact("sam", "mehtha", "state", "telangana");
 console.log(addressbookArray);
@@ -273,3 +298,7 @@ addContact(addressbookArray,"bhavani" , "vemula");
 console.log(addressbookArray);
 searchByCityOrState(addressbookArray, 'hyderabad');
 searchByCityOrState(addressbookArray, 'telanagana');
+PresentInCity(addressbookArray,"banjara","hyderabad");
+PresentInState(addressbookArray,"Anusha" ,"warangal" );
+getCountByCity(addressbookArray, "warangal");
+getCountByState(addressbookArray, "telangana");
