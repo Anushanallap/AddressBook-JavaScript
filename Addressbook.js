@@ -223,11 +223,11 @@ function countContacts(contactArray){
   */
  function addContact(addressbookArray,firstName,lastName){
     if(addressbookArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(firstName+" "+lastName))){   
-        console.log("Given contact already present in addressbook.");
+        console.log("given contact is alreay there in addressbook.");
     }
     else{
         try{
-            addressbookArray.push(new Contact(firstName,lastName,'RTNagar','Bangalore','Karnataka',560002,'91 8521036987','sehwag@gmail.com'));
+            addressbookArray.push(new Contact(firstName,lastName,'banjara colony','hyderabad','telangana',507303,'91 9852146374','bhavani@gmail.com'));
             
             console.log("Contact is added. ");
         }catch(Exception){
@@ -236,9 +236,22 @@ function countContacts(contactArray){
         
     }
 }
+/**UC8 ability to search person in a particular city or state
+ * using array function of filter ,map
+ */
+function searchByCityOrState(contactArray,cityorstate){
+    if(cityorstate == "hyderabad"){
+        console.log("Contact by city");
+        contactArray.filter(name => name.city == cityorstate).forEach(contact=>console.log(contact.toString()));
+    }
+    if(cityorstate == "telanagana"){
+        console.log("Contacts by state");
+        contactArray.filter(name => name.state == cityorstate).forEach(contact=>console.log(contact.toString()));
+    }
+}
 
 try {
-    addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
+    addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", 'telangana', 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
     console.error(e);
 }
@@ -258,3 +271,5 @@ console.log(addressbookArray);
 countContacts(addressbookArray);
 addContact(addressbookArray,"bhavani" , "vemula");
 console.log(addressbookArray);
+searchByCityOrState(addressbookArray, 'hyderabad');
+searchByCityOrState(addressbookArray, 'telanagana');
