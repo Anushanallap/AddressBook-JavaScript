@@ -136,19 +136,67 @@ console.log("Welcome to  AddressBook using JavaScript");
  * 
  *  * @return: which returns a mapfunction to validate if else statement
  */
-//  try {
-//     let contact = new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com");
-//     console.log(contact.toString());
-// } catch (e) {
-//     console.log(e);
-// }
+ try {
+    let contact = new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com");
+    console.log(contact.toString());
+} catch (e) {
+    console.log(e);
+}
 
    /**UC3 ability to create a new address book  array and add new contact to it
     * @returns whih  returns array from the addressbook
     */
 
    let addressbookArray = new Array();
-   try {
+//    try {
+//     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
+// } catch (e) {
+//     console.error(e);
+// }
+
+// try {
+//     addressbookArray.push(new Contact("Anusha", "Nallapu","Rotary nagar", "warangal", 'telanagna', 506001, '91 9658241764', "abc@gmail.com"));
+// } catch (e) {
+//     console.log(e);
+// }
+console.log(addressbookArray);
+
+/**UC4 ability to find existing contact person using their nam and edit it
+ * 
+ */
+function contactexists(firstName,lastName){
+    return addressbookArray.some(Contact => Contact.firstName == firstName && contact.lastName == lastName); 
+}
+function editContact(firstName, lastName, property, newValue) {
+    if (contactexists(firstName, lastName)) {
+        switch (property) {
+            case "address":
+                addressbookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                break;
+            case "city":
+                addressbookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                break;
+            case "state":
+                addressbookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                break;
+            case "zip":
+                addressbookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                break;
+            case "phoneNumber":
+                
+                addressbookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                break;
+            case "email":
+                addressbookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                break;
+            default:
+                console.log("Enter valid property");
+        }
+    } else {
+        console.log("Contact Does Not Exist");
+    }
+}
+try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", "telangana", 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
     console.error(e);
@@ -160,4 +208,6 @@ try {
     console.log(e);
 }
 console.log(addressbookArray);
- 
+console.log("\nAfter Editing Contact")
+editContact("sam", "mehtha", "city", "madhira");
+editContact("sam", "mehtha", "state", "Maharashtra");
