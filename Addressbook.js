@@ -279,6 +279,15 @@ function getCountByState(contactArray, stateName) {
     console.log("Number of contacts present state are: " + count);
 }
 
+/**UC11 ability to sort the entries in the adressbook alphabetically by person's name
+ * 
+ * 
+ */
+
+ function sortedContacts(contactArray) {
+    console.log('\nSorted contacts');
+    console.log(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
+}
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", 'telangana', 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -306,4 +315,5 @@ PresentInCity(addressbookArray,"banjara","hyderabad");
 PresentInState(addressbookArray,"Anusha" ,"warangal" );
 getCountByCity(addressbookArray, "warangal");
 getCountByState(addressbookArray, "telangana");
+sortedContacts(addressbookArray);
 
