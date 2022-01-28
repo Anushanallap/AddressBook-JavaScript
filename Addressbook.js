@@ -288,6 +288,25 @@ function getCountByState(contactArray, stateName) {
     console.log('\nSorted contacts');
     console.log(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
 }
+/**UC12 ability to sort the entries in the address book by city ,state,zip
+ * using array functons of filetr ,map,for each
+ * 
+ */
+function sortedContactsbyCity(contactArray) {
+    console.log('\nSorted contacts by city');
+    console.log(contactArray.sort((a,b)=>a.city.localeCompare(b.city)));
+}
+
+function sortedContactsByState(contactArray) {
+    console.log('\nSorted contacts by state');
+    console.log(contactArray.sort((a,b)=>a.state.localeCompare(b.state)));
+}
+
+function sortedContactsByZip(contactArray) {
+    console.log('\nSorted contacts by zip');
+    contactArray.sort(function (a, b) { return a.zip - b.zip });
+    contactArray.forEach(contact => console.log(contact.toString()));
+}
 try {
     addressbookArray.push(new Contact("sam", "mehtha", "srnagar", "khammam", 'telangana', 507303, "91 9875486186", "sam@gmail.com"));
 } catch (e) {
@@ -299,6 +318,8 @@ try {
 } catch (e) {
     console.log(e);
 }
+//console for all the uc's
+
 console.log(addressbookArray);
 console.log("\nAfter Editing Contact");
 editContact("sam", "mehtha", "city", "madhira");
@@ -316,4 +337,8 @@ PresentInState(addressbookArray,"Anusha" ,"warangal" );
 getCountByCity(addressbookArray, "warangal");
 getCountByState(addressbookArray, "telangana");
 sortedContacts(addressbookArray);
+
+sortedContactsbyCity(addressbookArray);
+sortedContactsByState(addressbookArray);
+sortedContactsByZip(addressbookArray);
 
